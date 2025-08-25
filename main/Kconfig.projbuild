@@ -8,7 +8,7 @@ menu "Example Configuration"
 
     config ESP_WIFI_PASSWORD
         string "SoftAP Password"
-        default "esp32_pwd"
+        default ""
         help
             WiFi password (WPA or WPA2) for the example to use for the softAP.
 
