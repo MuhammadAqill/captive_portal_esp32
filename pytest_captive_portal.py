@@ -13,6 +13,15 @@ import pytest
 from pytest_embedded import Dut
 from pytest_embedded_idf.utils import idf_parametrizse
 
+try:
+    import wifi_tools
+except ImportError:
+    wifi_tools_path = str(os.getenv('IDF_PATH')) + '/tools/ci/python_packages'
+    if wifi_tools_path and wifi_tools_path not in sys.path:
+        sys.path.insert(0, wifi_tools_path)
+    import wifi_tools
+
+
 def test_redirect(ip: str, port: str) -> str:
     # Establish HTTP connection
     sess = http.client.HTTPConnection(ip + ':' + port, timeout=15)
