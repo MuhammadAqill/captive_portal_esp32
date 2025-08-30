@@ -10,11 +10,8 @@ import sys
 
 import pexpect
 import pytest
-import wifi_tools
 from pytest_embedded import Dut
-from pytest_embedded_idf.utils import idf_parametrize
-
-
+from pytest_embedded_idf.utils import idf_parametrizse
 
 def test_redirect(ip: str, port: str) -> str:
     # Establish HTTP connection
