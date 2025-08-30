@@ -11,7 +11,7 @@ import sys
 import pexpect
 import pytest
 from pytest_embedded import Dut
-from pytest_embedded_idf.utils import idf_parametrizse
+from pytest_embedded_idf.utils import idf_parametrize
 
 try:
     import wifi_tools
