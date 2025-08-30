@@ -21,6 +21,22 @@ except ImportError:
         sys.path.insert(0, wifi_tools_path)
     import wifi_tools
 
+def pytest_addoption(parser):
+    parser.addoption("--ip", action="store", default="127.0.0.1", help="Target device IP")
+    parser.addoption("--port", action="store", default="80", help="Target device port")
+    parser.addoption("--uri", action="store", default="/", help="Target device URI")
+
+@pytest.fixture
+def ip(request):
+    return request.config.getoption("--ip")
+
+@pytest.fixture
+def port(request):
+    return request.config.getoption("--port")
+
+@pytest.fixture
+def uri(request):
+    return request.config.getoption("--uri")
 
 def test_redirect(ip: str, port: str) -> str:
     # Establish HTTP connection
